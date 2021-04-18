@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new</title>
+</head>
+<body>
+
+{% if error_message %}
+    <p>
+        <strong>
+            {{ error_message }}
+        </strong>
+    </p>
+{% endif %}
+
+<form action="{% url 'score:new_subject' %}" method="post">
+    {% csrf_token %}
+    <label for="name">Name</label>
+    <input type="text" placeholder="name" id="name"><br>
+    <label for="max_pkt">Name</label>
+    <input type="text" placeholder="max_pkt" id="max_pkt"><br>
+    <input type="submit" value="Add">
+</form>
+
+
+</body>
+</html>

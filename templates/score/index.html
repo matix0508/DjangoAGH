@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+
+{% if lst %}
+
+    <ul>
+    {% for subject in lst %}
+        <li>
+            <a href="{% url 'score:subject' subject.id %}">{{ subject }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No Subjects are available</p>
+{% endif %}
+
+</body>
+</html>
