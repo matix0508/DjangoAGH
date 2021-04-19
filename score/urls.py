@@ -4,7 +4,11 @@ from . import views
 
 app_name = 'score'
 urlpatterns = [
-    path('', views.subjects, name='subjects'),
-    path('new/', views.new_subject, name='new_subject'),
-    path('<int:subject_id>/', views.subject, name='subject')
+    path('', views.index, name='index'),
+    path('subjects/', views.SubjectListView.as_view(), name='subjects'),
+    path('subjects/new/', views.SubjectFormView.as_view(), name='new_subject'),
+    path('subjects/<int:pk>/', views.SubjectDetailView.as_view(), name='subject'),
+    path('fields/', views.FieldListView.as_view(), name='fields'),
+    path('fields/new/', views.FieldFormView.as_view(), name='new_field'),
+    path('fields/<int:pk>/', views.FieldDetailView.as_view(), name='field')
 ]
