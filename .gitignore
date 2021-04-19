@@ -1,2 +1,4 @@
 # Project exclude paths
 /venv/
+/score/migrations
+db.sqlite3
