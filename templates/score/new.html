@@ -18,7 +18,7 @@
             {{ form_name }}
         </div>
         <div class="card-body">
-            <form action="{% url 'score:new_subject' %}" method="post" class="form">
+            <form method="post" class="form">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% buttons %}

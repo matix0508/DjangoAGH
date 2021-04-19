@@ -69,7 +69,8 @@ class SubjectFormView(generic.edit.FormView):
     success_url = reverse_lazy('score:subjects')
     extra_context = {
         'form_name': 'New Subject',
-        'subjects_active': True
+        'subjects_active': True,
+        'action': reverse_lazy('score:new_field')
     }
 
     def form_valid(self, form):
@@ -86,13 +87,15 @@ class FieldFormView(generic.edit.FormView):
     success_url = reverse_lazy('score:fields')
     extra_context = {
         'form_name': 'New Field',
-        'field_active': True
+        'field_active': True,
+        'action': reverse_lazy('score:new_field')
     }
 
     def form_valid(self, form):
         f = Field(name=form.cleaned_data['name'])
         f.r1 = form.cleaned_data['r1']
         f.r2 = form.cleaned_data['r2']
+        f.p = form.cleaned_data['p']
         f.save()
 
         return super().form_valid(form)
