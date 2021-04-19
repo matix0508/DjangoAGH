@@ -1,0 +1,21 @@
+{% extends 'score/base.html' %}
+{% load static %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block content %}
+    <div class="card text-center">
+        <div class="card-header">
+            <h4>Hello World</h4>
+        </div>
+        <div class="card-body">
+            <img src="{% static 'score/matrix.jpeg' %}" class="card-img-top">
+            <p class="card-text">Welcome to our Page!</p>
+        </div>
+        <div class="card-footer">
+            <a href="#" class="btn btn-outline-success">Get Started</a>
+        </div>
+    </div>
+{% endblock %}

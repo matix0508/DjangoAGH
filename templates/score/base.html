@@ -28,15 +28,19 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                      <a class="nav-link active" aria-current="page" href="#">Home</a>
+                      <a class="nav-link {% if index_active %}active{% endif %}" aria-current="page" href="{% url 'score:index' %}">Home</a>
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'score:subjects' %}">Subjects</a>
+                      <a class="nav-link {% if subjects_active %}active{% endif %}" href="{% url 'score:subjects' %}">Subjects</a>
                     </li>
 
                     <li class="nav-item">
-                      <a class="nav-link" href="{% url 'score:fields' %}">Fields</a>
+                      <a class="nav-link {% if fields_active %}active{% endif %}" href="{% url 'score:fields' %}">Fields</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {% if points_active %}active{% endif %}" href="#">Calculate Points</a>
                     </li>
 
                   </ul>
@@ -56,7 +60,9 @@
         </div>
     </div>
 </div>
-
+<div class="row fixed-bottom modal-footer d-flex justify-content-center">
+        <h6 class="text-center">@ Mateusz Wlekliński 2021</h6>
+</div>
 
 </body>
 </html>

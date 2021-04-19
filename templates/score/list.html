@@ -1,27 +1,35 @@
 {% extends 'score/base.html' %}
 
 {% block content %}
-{% if lst %}
+
     <div class="card text-center w-25">
         <div class="card-header">
-            Subjects
+            {{ class_name | title }}
         </div>
-        <div class="card-body">
-            <ul class="list-group">
-            {% for subject in lst %}
-                <li class="list-group-item list-group-item-dark">
-                    <a class="btn btn-outline-info" href="{% url 'score:subject' subject.id %}">{{ subject }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
+        {% if lst %}
+            <div class="card-body">
+                <ul class="list-group">
+                {% for item in lst %}
+                    <li class="list-group-item list-group-item-dark">
+                        <a class="btn btn-outline-info"
+                                {% if class_name == 'subject' %}
+                                    href="{% url 'score:subject' item.id %}"
+                                {% else %}
+                                    href="{% url 'score:field' item.id %}"
+                                {% endif %}>
+                            {{ item | title }}
+                        </a>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
         <div class="card-footer">
-            <a href="{{ add_url }}" class="btn btn-outline-success">Add new Subject</a>
+            <a href="{{ add_url }}" class="btn btn-outline-success">Add New</a>
         </div>
     </div>
 
-{% else %}
-    <p>No Subjects are available</p>
-{% endif %}
+
 
 
 {% endblock %}

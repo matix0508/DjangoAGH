@@ -15,7 +15,7 @@
 {% endif %}
     <div class="card">
         <div class="card-footer text-center">
-            Name
+            {{ form_name }}
         </div>
         <div class="card-body">
             <form action="{% url 'score:new_subject' %}" method="post" class="form">
